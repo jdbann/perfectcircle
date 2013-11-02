@@ -3,8 +3,10 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.1'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# Use sqlite3 as the database for Active Record in development
+gem 'sqlite3', group: [:development, :test]
+
+gem 'pg', group: :production
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -43,3 +45,15 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# Use Devise for user authentication
+gem 'devise'
+
+# Use RedCloth for text formatting
+gem 'RedCloth'
+
+# Add gem for heroku hosting support
+gem 'rails_12factor', group: :production
+
+# Specify ruby version for heroku
+ruby "2.0.0"

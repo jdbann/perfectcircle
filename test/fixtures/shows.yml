@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  author: MyString
+  body: MyText
+  expiry_date: 2013-11-02
+  extended: MyText
+  author_date: MyString
+
+two:
+  title: MyString
+  author: MyString
+  body: MyText
+  expiry_date: 2013-11-02
+  extended: MyText
+  author_date: MyString
