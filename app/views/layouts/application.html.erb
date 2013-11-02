@@ -1,17 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Perfectcircle</title>
+  <title>Perfect Circle Theatre</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+	
+	<div id="page">
+		<div id="header"></div>
+		<div id="content">
+			<%= image_tag "logo.gif", :class => "logo" %>
+			<ul class="nav">
+				<li>
+					<%= link_to "News", news_index_path %>
+				</li>
+			</ul>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+			<p class="notice"><%= notice %></p>
+			<p class="alert"><%= alert %></p>
 
-<%= yield %>
+			<%= yield %>
 
-</body>
+			</div>
+			<div id="footer"></div>
+		</div>
+		<p class="copy">
+			Site Design © <a href="http://johanspun.com/">John Bannister</a> 2007<br />
+			Logo by Duncan Tyzzer, <a href="http://zzcreative.com/">ZZCreative.com</a><br />
+			<% if current_user %>
+			<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+			<% else %>
+			<%= link_to "Login", new_user_session_path %>
+			<% end %>
+		</p>
+	</body>
 </html>
