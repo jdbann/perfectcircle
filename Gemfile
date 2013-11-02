@@ -62,5 +62,8 @@ gem 'newrelic_rpm'
 gem 'paperclip'
 gem 'aws-sdk'
 
+# Add Postmark for email sending
+gem 'postmark-rails'
+
 # Specify ruby version for heroku
 ruby "2.0.0"
