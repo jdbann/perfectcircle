@@ -55,8 +55,12 @@ gem 'RedCloth'
 # Add gem for heroku hosting support
 gem 'rails_12factor', group: :production
 
-# Specify ruby version for heroku
-ruby "2.0.0"
-
 # Add New Relic gem for performance tracking
 gem 'newrelic_rpm'
+
+# Add Paperclip and Amazon Web Services for image management
+gem 'paperclip'
+gem 'aws-sdk'
+
+# Specify ruby version for heroku
+ruby "2.0.0"

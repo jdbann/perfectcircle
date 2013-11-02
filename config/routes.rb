@@ -1,4 +1,8 @@
 Perfectcircle::Application.routes.draw do
+  resources :photos
+
+  resources :albums
+
   resources :shows
 
   resources :projects

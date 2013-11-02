@@ -1,0 +1,30 @@
+<h1>Editing album</h1>
+
+<%= form_for @album do |f| %>
+
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :date %><br />
+    <%= f.text_field :date %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<h2>Add a Photo</h2>
+
+<%= form_for @photo, :html => { :multipart => true } do |f| %>
+
+  <%= f.hidden_field :album_id %>
+  <p><%= f.label :photo, "Photo" %><br>
+  <%= f.file_field :photo %></p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<p class="details"><%= link_to 'Show', @album %> | <%= link_to 'Back', albums_path %></[>
