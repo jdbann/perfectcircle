@@ -5,7 +5,16 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+    @projects = []
+    @past_projects = []
+    
+    Project.all(:order => "expiry_date DESC").each do |project|
+      if project.expiry_date >= DateTime.now
+        @projects << project
+      else
+        @past_projects << project
+      end
+    end
   end
 
   # GET /projects/1
