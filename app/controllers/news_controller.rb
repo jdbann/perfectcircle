@@ -16,7 +16,6 @@ class NewsController < ApplicationController
   # GET /news/new
   def new
     @news = News.new
-    @news.user = current_user
   end
 
   # GET /news/1/edit
@@ -27,6 +26,7 @@ class NewsController < ApplicationController
   # POST /news.json
   def create
     @news = News.new(news_params)
+    @news.user = current_user
 
     respond_to do |format|
       if @news.save
