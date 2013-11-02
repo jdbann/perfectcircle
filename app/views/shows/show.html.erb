@@ -1,34 +1,5 @@
-<p id="notice"><%= notice %></p>
+<h2><%= link_to @show.title, @show %> <span class="subtitle"><%= @show.author %> - <%= @show.author_date%></span></h2>
 
-<p>
-  <strong>Title:</strong>
-  <%= @show.title %>
-</p>
+<%= raw RedCloth.new(@show.body+"\n\n"+@show.extended).to_html %>
 
-<p>
-  <strong>Author:</strong>
-  <%= @show.author %>
-</p>
-
-<p>
-  <strong>Body:</strong>
-  <%= @show.body %>
-</p>
-
-<p>
-  <strong>Expiry date:</strong>
-  <%= @show.expiry_date %>
-</p>
-
-<p>
-  <strong>Extended:</strong>
-  <%= @show.extended %>
-</p>
-
-<p>
-  <strong>Author date:</strong>
-  <%= @show.author_date %>
-</p>
-
-<%= link_to 'Edit', edit_show_path(@show) %> |
-<%= link_to 'Back', shows_path %>
+<% if current_user %><p class="details"><%= link_to 'Edit', edit_show_path(@show) %> | <%= link_to 'Back', shows_path %></p><% end %>

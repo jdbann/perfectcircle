@@ -1,37 +1,21 @@
-<h1>Listing shows</h1>
+<h1>Upcoming Productions</h1>
+<% @shows.each do |show| %>
+<h2><%= link_to show.title, show %> <span class="subtitle"><%=h show.author %> - <%=h show.author_date %></span></h2>
+<%= raw RedCloth.new(show.body).to_html %>
+<% if current_user %><p class="details"><%= link_to 'Show', show %> | <%= link_to 'Edit', edit_show_path(show) %> | <%= link_to 'Destroy', show, :confirm => 'Are you sure?', :method => :delete %></p><% end %>
+<% end %>
+<% if @shows.empty? %>
+<p>Watch this space!</p>
+<% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Author</th>
-      <th>Body</th>
-      <th>Expiry date</th>
-      <th>Extended</th>
-      <th>Author date</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<h1>Past Productions</h1>
+<% @past_shows.each do |show| %>
+<h2><%= link_to show.title, show %> <span class="subtitle"><%=h show.author %> - <%=h show.author_date %></span></h2>
+<%= raw RedCloth.new(show.body).to_html %>
+<% if current_user %><p class="details"><%= link_to 'Show', show %> | <%= link_to 'Edit', edit_show_path(show) %> | <%= link_to 'Destroy', show, :confirm => 'Are you sure?', :method => :delete %></p><% end %>
+<% end %>
+<% if @past_shows.empty? %>
+<p>None!</p>
+<% end %>
 
-  <tbody>
-    <% @shows.each do |show| %>
-      <tr>
-        <td><%= show.title %></td>
-        <td><%= show.author %></td>
-        <td><%= show.body %></td>
-        <td><%= show.expiry_date %></td>
-        <td><%= show.extended %></td>
-        <td><%= show.author_date %></td>
-        <td><%= link_to 'Show', show %></td>
-        <td><%= link_to 'Edit', edit_show_path(show) %></td>
-        <td><%= link_to 'Destroy', show, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Show', new_show_path %>
+<% if current_user %><p class="details"><%= link_to 'New show', new_show_path %></p><% end %>

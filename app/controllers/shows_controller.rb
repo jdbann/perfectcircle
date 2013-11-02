@@ -5,7 +5,16 @@ class ShowsController < ApplicationController
   # GET /shows
   # GET /shows.json
   def index
-    @shows = Show.all
+    @shows = []
+    @past_shows = []
+    
+    Show.all(:order => "expiry_date DESC").each do |show|
+      if show.expiry_date >= DateTime.now
+        @shows << show
+      else
+        @past_shows << show
+      end
+    end
   end
 
   # GET /shows/1
