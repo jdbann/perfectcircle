@@ -65,9 +65,10 @@ class PhotosController < ApplicationController
   # DELETE /photos/1
   # DELETE /photos/1.json
   def destroy
+    @album = @photo.album
     @photo.destroy
     respond_to do |format|
-      format.html { redirect_to photos_url }
+      format.html { redirect_to @album }
       format.json { head :no_content }
     end
   end
