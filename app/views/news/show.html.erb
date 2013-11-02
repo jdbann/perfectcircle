@@ -1,19 +1,4 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @news.title %>
-</p>
-
-<p>
-  <strong>Body:</strong>
-  <%= @news.body %>
-</p>
-
-<p>
-	<strong>User:</strong>
-	<%= @news.user.name %>
-</p>
-
-<%= link_to 'Edit', edit_news_path(@news) %> |
-<%= link_to 'Back', news_index_path %>
+<%= render :partial => 'post', :object => @news %>
+<% if current_user -%>
+<p class="details"><%= link_to 'Edit', edit_news_path(@news) %> | <%= link_to 'Destroy', news_path(@news), :confirm => 'Are you sure?', :method => :delete %></p>
+<% end -%>

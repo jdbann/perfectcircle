@@ -1,29 +1,10 @@
-<h1>Listing news</h1>
+<% @news.each do |news| -%>
+<%= render :partial => 'post', :object => news %>
+<% if current_user -%>
+<p class="details"><%= link_to 'Edit', edit_news_path(news) %> | <%= link_to 'Destroy', news_path(news), :confirm => 'Are you sure?', :method => :delete %></p>
+<% end -%>
+<% end -%>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @news.each do |news| %>
-      <tr>
-        <td><%= news.title %></td>
-        <td><%= news.body %></td>
-        <td><%= link_to 'Show', news %></td>
-        <td><%= link_to 'Edit', edit_news_path(news) %></td>
-        <td><%= link_to 'Destroy', news, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New News', new_news_path %>
+<% if current_user -%>
+<p><%= link_to 'New news', new_news_path %></p>
+<% end -%>
