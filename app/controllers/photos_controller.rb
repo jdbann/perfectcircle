@@ -35,7 +35,7 @@ class PhotosController < ApplicationController
   # POST /photos
   # POST /photos.json
   def create
-    @photo = Photo.new(params[:photo])
+    @photo = Photo.new(photo_params)
 
     respond_to do |format|
       if @photo.save
@@ -80,6 +80,6 @@ class PhotosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def photo_params
-      params.require(:photo).permit(:album_id, photos_attributes: [upload: [:upload_file_name, :upload_content_type, :tempfile]])
+      params.require(:photo).permit(:album_id, photo_attributes: [photo: [:upload_file_name, :upload_content_type, :tempfile]])
     end
 end
