@@ -1,37 +1,20 @@
-<h1>Listing projects</h1>
+<h1>Upcoming Projects</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th>Location</th>
-      <th>Project date</th>
-      <th>Expiry date</th>
-      <th>Extended</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<% @projects.each do |project| %>
+<h2><%= link_to project.title, project %> <span class="subtitle"><%= project.location %> - <%= project.project_date %></span></h2>
 
-  <tbody>
-    <% @projects.each do |project| %>
-      <tr>
-        <td><%= project.title %></td>
-        <td><%= project.body %></td>
-        <td><%= project.location %></td>
-        <td><%= project.project_date %></td>
-        <td><%= project.expiry_date %></td>
-        <td><%= project.extended %></td>
-        <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= raw RedCloth.new(project.body).to_html %>
 
-<br>
+<% if current_user %><p class="details"><%= link_to 'Edit', edit_project_path(project) %> - <%= link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete %></p><% end %>
+<% end %>
 
-<%= link_to 'New Project', new_project_path %>
+<h1>Past Projects</h1>
+<% @past_projects.each do |project| %>
+<h2><%= link_to project.title, project %> <span class="subtitle"><%= project.location %> - <%= project.project_date %></span></h2>
+
+<%= raw RedCloth.new(project.body).to_html %>
+
+<% if current_user %><p class="details"><%= link_to 'Edit', edit_project_path(project) %> - <%= link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete %></p><% end %>
+<% end %>
+
+<% if current_user %><p class="details"><%= link_to 'New projects', new_project_path %></p><% end %>
