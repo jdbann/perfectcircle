@@ -57,3 +57,6 @@ gem 'rails_12factor', group: :production
 
 # Specify ruby version for heroku
 ruby "2.0.0"
+
+# Add New Relic gem for performance tracking
+gem 'newrelic_rpm'
