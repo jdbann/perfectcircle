@@ -65,11 +65,15 @@ class PagesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_page
-      @page = Page.find(params[:id])
+      if params[:permalink]
+        @page = Page.find_by_permalink(params[:permalink])
+      else
+        @page = Page.find(params[:id])
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def page_params
-      params.require(:page).permit(:title, :body)
+      params.require(:page).permit(:title, :body, :permalink)
     end
 end

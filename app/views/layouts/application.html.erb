@@ -14,7 +14,19 @@
 			<%= image_tag "logo.gif", :class => "logo" %>
 			<ul class="nav">
 				<li>
+					<%= link_to "The Company", named_path("thecompany") %>
+				</li>
+				<li>
 					<%= link_to "News", news_index_path %>
+				</li>
+				<li>
+					<%= link_to "Productions", shows_path %>
+				</li>
+				<li>
+					<%= link_to "Projects & Workshops", projects_path %>
+				</li>
+				<li>
+					<%= link_to "Contact Us", named_path("contactus") %>
 				</li>
 			</ul>
 
