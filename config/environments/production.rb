@@ -90,5 +90,5 @@ Perfectcircle::Application.configure do
   
   config.action_mailer.default_url_options = { :host => 'perfectcircle.herokuapp.com' }
   
-  ActionMailer::Base.default :from => 'jdbann@me.com'
+  ActionMailer::Base.default :from => 'john@perfectcircletheatre.com'
 end
