@@ -62,5 +62,9 @@ gem 'aws-sdk'
 # Add Postmark for email sending
 gem 'postmark-rails'
 
+group :development, :test do
+    gem 'rspec-rails', '~> 3.5'
+end
+
 # Specify ruby version for heroku
 ruby "2.0.0"
