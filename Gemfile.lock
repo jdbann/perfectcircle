@@ -26,6 +26,7 @@ GEM
       multi_json (~> 1.3)
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
+    addressable (2.4.0)
     arel (4.0.1)
     atomic (1.1.14)
     aws-sdk (1.24.0)
@@ -34,6 +35,16 @@ GEM
       uuidtools (~> 2.1)
     bcrypt-ruby (3.1.2)
     builder (3.1.4)
+    capybara (2.7.1)
+      addressable
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      xpath (~> 2.0)
+    capybara-webkit (1.11.1)
+      capybara (>= 2.3.0, < 2.8.0)
+      json
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.3)
@@ -159,6 +170,8 @@ GEM
     uuidtools (2.1.4)
     warden (1.2.3)
       rack (>= 1.0)
+    xpath (2.0.0)
+      nokogiri (~> 1.3)
 
 PLATFORMS
   ruby
@@ -166,6 +179,7 @@ PLATFORMS
 DEPENDENCIES
   RedCloth
   aws-sdk
+  capybara-webkit
   coffee-rails (~> 4.0.0)
   devise
   jbuilder (~> 1.2)

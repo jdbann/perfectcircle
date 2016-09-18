@@ -66,5 +66,9 @@ group :development, :test do
     gem 'rspec-rails', '~> 3.5'
 end
 
+group :test do
+    gem 'capybara-webkit'
+end
+
 # Specify ruby version for heroku
 ruby "2.0.0"
