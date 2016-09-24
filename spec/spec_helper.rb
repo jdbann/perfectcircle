@@ -1,8 +1,3 @@
-if ENV.fetch("COVERAGE", false)
-  require "simplecov"
-  SimpleCov.start "rails"
-end
-
 require "codeclimate-test-reporter"
 CodeClimate::TestReporter.start
 
@@ -15,6 +10,17 @@ RSpec.configure do |config|
   config.mock_with :rspec do |mocks|
     mocks.syntax = :expect
     mocks.verify_partial_doubles = true
+  end
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.around(:each) do |example|
+    DatabaseCleaner.cleaning do
+      example.run
+    end
   end
 
   config.example_status_persistence_file_path =
