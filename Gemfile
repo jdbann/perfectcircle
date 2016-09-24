@@ -69,6 +69,7 @@ end
 
 group :test do
     gem 'capybara-webkit'
+    gem "codeclimate-test-reporter", require: nil
 end
 
 # Specify ruby version for heroku
