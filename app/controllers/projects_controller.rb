@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
     @projects = []
     @past_projects = []
 
-    Project.all(order: "expiry_date DESC").each do |project|
+    Project.all.order(expiry_date: :desc).each do |project|
       if project.expiry_date >= DateTime.now
         @projects << project
       else

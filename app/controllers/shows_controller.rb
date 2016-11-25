@@ -5,7 +5,7 @@ class ShowsController < ApplicationController
   def index
     @shows = []
     @past_shows = []
-    Show.all(order: "expiry_date DESC").each do |show|
+    Show.all.order(expiry_date: :desc).each do |show|
       if show.expiry_date >= DateTime.now
         @shows << show
       else
