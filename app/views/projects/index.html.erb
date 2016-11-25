@@ -5,7 +5,7 @@
 
 <%= raw RedCloth.new(project.body).to_html %>
 
-<% if current_user %><p class="details"><%= link_to 'Edit', edit_project_path(project) %> - <%= link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete %></p><% end %>
+<% if current_user %><p class="details"><%= link_to 'Edit', edit_project_path(project) %> - <%= link_to 'Destroy', project, data: { confirm: 'Are you sure?'}, method: :delete %></p><% end %>
 <% end %>
 
 <h1>Past Projects</h1>
@@ -14,7 +14,7 @@
 
 <%= raw RedCloth.new(project.body).to_html %>
 
-<% if current_user %><p class="details"><%= link_to 'Edit', edit_project_path(project) %> - <%= link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete %></p><% end %>
+<% if current_user %><p class="details"><%= link_to 'Edit', edit_project_path(project) %> - <%= link_to 'Destroy', project, data: { confirm: 'Are you sure?' }, method: :delete %></p><% end %>
 <% end %>
 
 <% if current_user %><p class="details"><%= link_to 'New projects', new_project_path %></p><% end %>

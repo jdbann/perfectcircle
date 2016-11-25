@@ -1,8 +1,8 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.feature "user_can_login", type: :feature do
   scenario "user logs in" do
-    user = create :user, email: "john@example.com", password: "password"
+    create :user, email: "john@example.com", password: "password"
 
     visit new_user_session_path
 

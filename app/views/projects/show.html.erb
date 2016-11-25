@@ -2,4 +2,4 @@
 
 <%= raw RedCloth.new(@project.body+"\n\n"+@project.extended).to_html %>
 
-<% if current_user %><p class="details"><%= link_to 'Edit', edit_project_path(@project) %> - <%= link_to 'Destroy', @project, :confirm => 'Are you sure?', :method => :delete %> - <%= link_to 'Back', projects_path %></p><% end %>
+<% if current_user %><p class="details"><%= link_to 'Edit', edit_project_path(@project) %> - <%= link_to 'Destroy', @project, data: { confirm: 'Are you sure?' }, method: :delete %> - <%= link_to 'Back', projects_path %></p><% end %>

@@ -1,14 +1,11 @@
 class ShowsController < ApplicationController
   before_action :set_show, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
-  # GET /shows
-  # GET /shows.json
   def index
     @shows = []
     @past_shows = []
-    
-    Show.all(:order => "expiry_date DESC").each do |show|
+    Show.all(order: "expiry_date DESC").each do |show|
       if show.expiry_date >= DateTime.now
         @shows << show
       else
@@ -17,52 +14,34 @@ class ShowsController < ApplicationController
     end
   end
 
-  # GET /shows/1
-  # GET /shows/1.json
   def show
   end
 
-  # GET /shows/new
   def new
     @show = Show.new
   end
 
-  # GET /shows/1/edit
   def edit
   end
 
-  # POST /shows
-  # POST /shows.json
   def create
     @show = Show.new(show_params)
 
-    respond_to do |format|
-      if @show.save
-        format.html { redirect_to @show, notice: 'Show was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @show }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @show.errors, status: :unprocessable_entity }
-      end
+    if @show.save
+      redirect_to @show, notice: "Show was successfully created."
+    else
+      render action: "new"
     end
   end
 
-  # PATCH/PUT /shows/1
-  # PATCH/PUT /shows/1.json
   def update
-    respond_to do |format|
-      if @show.update(show_params)
-        format.html { redirect_to @show, notice: 'Show was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @show.errors, status: :unprocessable_entity }
-      end
+    if @show.update(show_params)
+      redirect_to @show, notice: "Show was successfully updated."
+    else
+      render action: "edit"
     end
   end
 
-  # DELETE /shows/1
-  # DELETE /shows/1.json
   def destroy
     @show.destroy
     respond_to do |format|
@@ -72,13 +51,14 @@ class ShowsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_show
-      @show = Show.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def show_params
-      params.require(:show).permit(:title, :author, :body, :expiry_date, :extended, :author_date)
-    end
+  def set_show
+    @show = Show.find(params[:id])
+  end
+
+  def show_params
+    params.require(:show).permit(
+      :title, :author, :body, :expiry_date, :extended, :author_date
+    )
+  end
 end

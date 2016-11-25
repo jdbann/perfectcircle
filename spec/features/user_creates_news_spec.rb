@@ -1,8 +1,8 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.feature "user_creates_news", type: :feature do
   scenario "with title and body" do
-    login_as(create :user)
+    login_as create(:user)
 
     visit new_news_path
 
