@@ -2,4 +2,4 @@
 
 <p class="details"><% if @previous_photo %><%= link_to "Previous", photo_path(@previous_photo) %> - <% end %><%= link_to @photo.album.title, album_path(@photo.album) %><% if @next_photo %> - <%= link_to "Next", photo_path(@next_photo) %><% end %></p>
 
-<% if current_user %><p class="details"><%= link_to 'Edit', edit_photo_path(@photo) %> | <%= link_to 'Destroy', @photo, :confirm => 'Are you sure?', :method => :delete %> | <%= link_to 'Back', album_path(@photo.album) %></p><% end %>
+<% if current_user %><p class="details"><%= link_to 'Edit', edit_photo_path(@photo) %> | <%= link_to 'Destroy', @photo, data: { confirm: 'Are you sure?'}, method: :delete %> | <%= link_to 'Back', album_path(@photo.album) %></p><% end %>

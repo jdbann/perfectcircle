@@ -6,7 +6,7 @@
 <% album.photos.first(4).each do |photo| %>
 <%= link_to image_tag(photo.photo.url(:thumb), :class => "g"), photo_path(photo) %>
 <% end %>
-<% if current_user %><p class="details"><%= link_to 'Edit', edit_album_path(album) %> | <%= link_to 'Destroy', album, :confirm => 'Are you sure?', :method => :delete %></p><% end %>
+<% if current_user %><p class="details"><%= link_to 'Edit', edit_album_path(album) %> | <%= link_to 'Destroy', album, data: { confirm: 'Are you sure?', method: :delete } %></p><% end %>
 <p class="details"><%= link_to "View all", album %></p>
 <% end %>
 

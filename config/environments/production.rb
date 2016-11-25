@@ -1,6 +1,4 @@
 Perfectcircle::Application.configure do
-  # Settings specified here will take precedence over those in config/application.rb.
-
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -16,8 +14,9 @@ Perfectcircle::Application.configure do
 
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
   # Add `rack-cache` to your Gemfile before enabling this.
-  # For large-scale production use, consider using a caching reverse proxy like nginx, varnish or squid.
-  # config.action_dispatch.rack_cache = true
+  # For large-scale production use, consider using a caching reverse proxy like
+  # nginx, varnish or squid.
+  config.action_dispatch.rack_cache = true
 
   # Disable Rails's static asset server (Apache or nginx will already do this).
   config.serve_static_assets = false
@@ -33,13 +32,14 @@ Perfectcircle::Application.configure do
   config.assets.digest = true
 
   # Version of your assets, change this if you want to expire all your assets.
-  config.assets.version = '1.0'
+  config.assets.version = "1.0"
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
 
-  # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
+  # Force all access to the app over SSL, use Strict-Transport-Security, and
+  # use secure cookies.
   # config.force_ssl = true
 
   # Set to :debug to see everything in the log.
@@ -58,11 +58,13 @@ Perfectcircle::Application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Precompile additional assets.
-  # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
+  # application.js, application.css, and all non-JS/CSS in app/assets folder are
+  # already added.
   # config.assets.precompile += %w( search.js )
 
   # Ignore bad email addresses and do not raise email delivery errors.
-  # Set this to true and configure the email server for immediate delivery to raise delivery errors.
+  # Set this to true and configure the email server for immediate delivery to
+  # raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
@@ -77,18 +79,18 @@ Perfectcircle::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
-  
-  # config/environments/production.rb
+
   config.paperclip_defaults = {
-    :storage => :s3,
-    :s3_credentials => {
-      :bucket => ENV['S3_BUCKET_NAME'],
-      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
-    }
+    storage: :s3,
+    s3_credentials: {
+      bucket: ENV["S3_BUCKET_NAME"],
+      access_key_id: ENV["AWS_ACCESS_KEY_ID"],
+      secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"],
+    },
   }
-  
-  config.action_mailer.default_url_options = { :host => 'perfectcircle.herokuapp.com' }
-  
-  ActionMailer::Base.default :from => 'john@perfectcircletheatre.com'
+
+  config.action_mailer.default_url_options =
+    { host: "perfectcircle.herokuapp.com" }
+
+  ActionMailer::Base.default from: "john@perfectcircletheatre.com"
 end

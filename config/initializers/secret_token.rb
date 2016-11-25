@@ -9,4 +9,6 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Perfectcircle::Application.config.secret_key_base = 'ca21fd3fae33fee8bccbece4d4e7954f681d4e6897bf648443e40af9b89b213db7aa7872807354e8f7535bdd379172c3f098fdadc3b0b20df902cfdb2057fdfd'
+Perfectcircle::Application.config.secret_key_base =
+  "ca21fd3fae33fee8bccbece4d4e7954f681d4e6897bf648443e40af9b89b213d" \
+  "b7aa7872807354e8f7535bdd379172c3f098fdadc3b0b20df902cfdb2057fdfd"

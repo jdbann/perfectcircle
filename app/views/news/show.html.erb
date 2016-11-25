@@ -1,4 +1,4 @@
 <%= render :partial => 'post', :object => @news %>
 <% if current_user -%>
-  <p class="details"><%= link_to 'Edit', edit_news_path(@news) %> | <%= link_to 'Destroy', news_path(@news), data: { :confirm => 'Are you sure?', :method => :delete } %></p>
+  <p class="details"><%= link_to 'Edit', edit_news_path(@news) %> | <%= link_to 'Destroy', news_path(@news), data: { confirm: 'Are you sure?'}, method: :delete %></p>
 <% end -%>
