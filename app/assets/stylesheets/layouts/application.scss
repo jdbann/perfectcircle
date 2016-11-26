@@ -1,0 +1,9 @@
+#page {
+  @include outer-container(33em);
+}
+
+#header {
+  .logo {
+    float: right;
+  }
+}

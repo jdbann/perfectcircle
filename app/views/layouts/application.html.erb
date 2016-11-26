@@ -1,54 +1,56 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Perfect Circle Theatre</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-	
-	<div id="page">
-		<div id="header"></div>
-		<div id="content">
-			<%= image_tag "logo.gif", :class => "logo" %>
-			<ul class="nav">
-				<li>
-					<%= link_to "The Company", named_path("thecompany") %>
-				</li>
-				<li>
-					<%= link_to "News", news_index_path %>
-				</li>
-				<li>
-					<%= link_to "Productions", shows_path %>
-				</li>
-				<li>
-					<%= link_to "Projects & Workshops", projects_path %>
-				</li>
-				<li>
-					<%= link_to "Gallery", albums_path %>
-				</li>
-				<li>
-					<%= link_to "Contact Us", named_path("contactus") %>
-				</li>
-			</ul>
+  <head>
+    <title>Perfect Circle Theatre</title>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
-			<p class="notice"><%= notice %></p>
-			<p class="alert"><%= alert %></p>
+    <div id="page">
+      <div id="header">
+        <%= image_tag "logo.gif", :class => "logo" %>
+        <ul class="nav">
+          <li>
+            <%= link_to "The Company", named_path("thecompany") %>
+          </li>
+          <li>
+            <%= link_to "News", news_index_path %>
+          </li>
+          <li>
+            <%= link_to "Productions", shows_path %>
+          </li>
+          <li>
+            <%= link_to "Projects & Workshops", projects_path %>
+          </li>
+          <li>
+            <%= link_to "Gallery", albums_path %>
+          </li>
+          <li>
+            <%= link_to "Contact Us", named_path("contactus") %>
+          </li>
+        </ul>
+      </div>
+      <div id="content">
 
-			<%= yield %>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
 
-			</div>
-			<div id="footer"></div>
-		</div>
-		<p class="copy">
-			Site Design © <a href="http://johanspun.com/">John Bannister</a> 2007<br />
-			Logo by Duncan Tyzzer, <a href="http://zzcreative.com/">ZZCreative.com</a><br />
-			<% if current_user %>
-			<%= link_to "Logout", destroy_user_session_path, method: :delete %>
-			<% else %>
-			<%= link_to "Login", new_user_session_path %>
-			<% end %>
-		</p>
-	</body>
+        <%= yield %>
+
+      </div>
+      <div id="footer">
+        <p class="copy">
+        Site Design © <a href="http://johanspun.com/">John Bannister</a> 2007<br />
+        Logo by Duncan Tyzzer, <a href="http://zzcreative.com/">ZZCreative.com</a><br />
+        <% if current_user %>
+          <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to "Login", new_user_session_path %>
+        <% end %>
+        </p>
+      </div>
+    </div>
+  </body>
 </html>
