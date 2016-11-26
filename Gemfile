@@ -66,6 +66,10 @@ gem "postmark-rails"
 # Add Rubocop for code styling
 gem "rubocop", group: :production
 
+group :development do
+  gem "web-console", "~> 2.0"
+end
+
 group :development, :test do
   gem "rspec-rails", "~> 3.5"
   gem "factory_girl_rails"
