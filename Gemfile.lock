@@ -181,6 +181,7 @@ GEM
     sdoc (0.4.2)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    spring (1.7.2)
     sprockets (2.12.4)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -230,6 +231,7 @@ DEPENDENCIES
   rubocop
   sass-rails (~> 4.0.0)
   sdoc
+  spring
   turbolinks
   uglifier (>= 1.3.0)
 

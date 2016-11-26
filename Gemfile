@@ -69,6 +69,7 @@ gem "rubocop", group: :production
 group :development, :test do
   gem "rspec-rails", "~> 3.5"
   gem "factory_girl_rails"
+  gem "spring"
 end
 
 group :test do
