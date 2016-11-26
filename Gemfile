@@ -1,9 +1,10 @@
 source "https://rubygems.org"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails"
-gem "rails", "4.0.13"
+gem "rails", "4.1.16"
 
 gem "pg"
+gem "rack-cache"
 
 # Use SCSS for stylesheets
 gem "sass-rails", "~> 4.0.0"
@@ -68,13 +69,14 @@ gem "rubocop", group: :production
 group :development, :test do
   gem "rspec-rails", "~> 3.5"
   gem "factory_girl_rails"
+  gem "spring"
 end
 
 group :test do
   gem "database_cleaner"
   gem "capybara-webkit"
-  gem "codeclimate-test-reporter", require: nil
+  gem "coveralls", require: false
 end
 
 # Specify ruby version for heroku
-ruby "2.0.0"
+ruby "2.1.10"
