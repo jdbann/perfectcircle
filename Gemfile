@@ -75,6 +75,7 @@ end
 group :test do
   gem "database_cleaner"
   gem "capybara-webkit"
+  gem "coveralls", require: false
 end
 
 # Specify ruby version for heroku
