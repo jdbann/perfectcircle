@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails"
-gem "rails", "4.1.16"
+gem "rails", "4.2.7.1"
 
 gem "pg"
 gem "rack-cache"
@@ -65,6 +65,10 @@ gem "postmark-rails"
 
 # Add Rubocop for code styling
 gem "rubocop", group: :production
+
+group :development do
+  gem "web-console", "~> 2.0"
+end
 
 group :development, :test do
   gem "rspec-rails", "~> 3.5"
