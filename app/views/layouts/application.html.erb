@@ -7,40 +7,42 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-
-    <div id="page">
-      <div id="header">
+    <div class="outer-container">
+      <header>
         <%= image_tag "logo.gif", :class => "logo" %>
-        <ul class="nav">
-          <li>
-            <%= link_to "The Company", named_path("thecompany") %>
-          </li>
-          <li>
-            <%= link_to "News", news_index_path %>
-          </li>
-          <li>
-            <%= link_to "Productions", shows_path %>
-          </li>
-          <li>
-            <%= link_to "Projects & Workshops", projects_path %>
-          </li>
-          <li>
-            <%= link_to "Gallery", albums_path %>
-          </li>
-          <li>
-            <%= link_to "Contact Us", named_path("contactus") %>
-          </li>
-        </ul>
-      </div>
-      <div id="content">
+        <nav>
+          <ul class="nav">
+            <li>
+              <%= link_to "The Company", named_path("thecompany") %>
+            </li>
+            <li>
+              <%= link_to "News", news_index_path %>
+            </li>
+            <li>
+              <%= link_to "Productions", shows_path %>
+            </li>
+            <li>
+              <%= link_to "Projects & Workshops", projects_path %>
+            </li>
+            <li>
+              <%= link_to "Gallery", albums_path %>
+            </li>
+            <li>
+              <%= link_to "Contact Us", named_path("contactus") %>
+            </li>
+          </ul>
+        </nav>
+      </header>
 
+      <main>
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
 
         <%= yield %>
 
-      </div>
-      <div id="footer">
+      </main>
+
+      <footer>
         <p class="copy">
         Site Design © <a href="http://johanspun.com/">John Bannister</a> 2007<br />
         Logo by Duncan Tyzzer, <a href="http://zzcreative.com/">ZZCreative.com</a><br />
@@ -50,7 +52,7 @@
           <%= link_to "Login", new_user_session_path %>
         <% end %>
         </p>
-      </div>
+      </footer>
     </div>
   </body>
 </html>
