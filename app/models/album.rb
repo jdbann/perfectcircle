@@ -1,3 +1,3 @@
-class Album < ActiveRecord::Base
+class Album < ApplicationRecord
   has_many :photos
 end
