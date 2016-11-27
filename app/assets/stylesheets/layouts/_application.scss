@@ -1,0 +1,46 @@
+$mobile: new-breakpoint(max-width 480px 4);
+
+body {
+  margin: 0 1em 1em;
+}
+
+.outer-container {
+  @include outer-container(40em);
+}
+
+header {
+  @include row($direction: RTL);
+
+  nav {
+    @include span-columns(6);
+
+    @include media($mobile) {
+      @include span-columns(2);
+    }
+  }
+
+  .logo {
+    @include span-columns(6);
+
+    text-align: right;
+
+    @include media($mobile) {
+      @include span-columns(2);
+    }
+  }
+}
+
+main {
+  @include row();
+}
+
+footer {
+  color: $light-gray;
+  font-size: .75em;
+  line-height: 2;
+  text-align: right;
+
+  a {
+    color: $medium-gray;
+  }
+}
